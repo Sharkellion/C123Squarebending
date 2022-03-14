@@ -1,19 +1,31 @@
-body{
-  background-color:"#e63946";
-}
-h3{
-  background-color:"#1d3557";
-  color:"#f1faee";
-}
-bold{
-  color:"red";
-}
-.copy_right_footer{
-  position:fixed;
-  color:"#457b9d";
-  bottom:0;
-}
-canvas{
-  border:5px solid "#a8dadc";
-   box-shadow:5px 5px 5px;
-}
+ .heading
+  {
+    font-size: 23px;
+    width: 100%;
+    margin: 0px;
+    box-shadow:5px 5px 5px grey;
+  }
+  .note
+  {
+    font-size: 15px;
+    color: black;
+  }
+  .copy_right_footer {
+    position: fixed;
+    color: white;
+    bottom: 0;
+    width: 100%;
+    background-color:”#457b9d”;
+    line-height: 3;
+    text-align: center;
+ }
+  canvas 
+  {
+    border:5px solid white;
+    border-radius:20px;
+    box-shadow:5px 5px 5px #a8dadc
+;
+  }
+
+
+
