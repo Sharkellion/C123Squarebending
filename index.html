@@ -35,9 +35,6 @@
 <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
 
 
-<link rel="stylesheet" type="text/css" href="style.css">
-
-
 </head>
 
 
@@ -88,7 +85,7 @@ Move you nose to move the square</span>
 <div class="copy_right_footer">
 
 
-Developed by - WhitehatJr Team
+Developed by - Adam Kasouit
 
 
 </div>
@@ -99,6 +96,73 @@ Developed by - WhitehatJr Team
 
 
 <script src="main.js"></script>
+<style>
+.heading
+  {
+    font-size: 23px;
+    width: 100%;
+    margin: 0px;
+    box-shadow:5px 5px 5px grey;
+  }
+  .note
+  {
+    font-size: 15px;
+    color: black;
+  }
+  .copy_right_footer {
+    position: fixed;
+    color: white;
+    bottom: 0;
+    width: 100%;
+    background-color:”#457b9d”;
+    line-height: 3;
+    text-align: center;
+ }
+  canvas 
+  {
+    border:5px solid white;
+    border-radius:20px;
+    box-shadow:5px 5px 5px #a8dadc;
+  }
+  </style>
+  <script>
+  noseX=0;
+  noseY=0;
+  difference=0;
+  rightWristX=0;
+  leftWristX=0;
+  function setup(){
+      video=createCapture(VIDEO);
+      video.size(550,500);
+      canvas=createCanvas(550,550);
+      canvas.position(560,150);
+      poseNet=ml5.poseNet(video,modelLoaded);
+      poseNet.on('pose',gotPoses);
+  }
+  function modelLoaded(){
+      console.log('poseNet is initialized-');
+  }
+  function gotPoses(results){
+      if(results.length>0){
+          console.log(results);
+          noseX=results[0].pose.nose.x;
+          noseY=results[0].pose.nose.y;
+          console.log("noseX="+noseX+"noseY="+noseY);
+          leftWristX=results[0].pose.leftWrist.x;
+          rightWristX=results[0].pose.rightWrist.x;
+          difference=floor(leftWristX-rightWristX);
+          console.log("leftWristX= "+leftWristX+"RightWrisX="+rightWristX+"difference= "+difference);
+      
+  }
+  function draw(){
+      background('#d4af37');
+      document.getElementById("square_side").innerHTML="Height and Width of Square will be"+difference+"px";
+      fill("#42331d");
+      stroke('#42331d');
+      square(noseX,noseY,difference);
+  }
+ 
+  </script>
 
 
 </body>
