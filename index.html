@@ -89,13 +89,6 @@ Developed by - Adam Kasouit
 
 
 </div>
-
-
-
-
-
-
-<script src="main.js"></script>
 <style>
 .heading
   {
@@ -152,7 +145,7 @@ Developed by - Adam Kasouit
           rightWristX=results[0].pose.rightWrist.x;
           difference=floor(leftWristX-rightWristX);
           console.log("leftWristX= "+leftWristX+"RightWrisX="+rightWristX+"difference= "+difference);
-      
+  }
   }
   function draw(){
       background('#d4af37');
@@ -161,7 +154,6 @@ Developed by - Adam Kasouit
       stroke('#42331d');
       square(noseX,noseY,difference);
   }
- 
   </script>
 
 
